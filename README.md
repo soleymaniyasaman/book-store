@@ -23,7 +23,7 @@ A dynamic Angular application that demonstrates state management, real-time even
 
 The project follows a feature-based structure:
 
-
+```
 books-app/
 ├── src/
 │   ├── app/
@@ -35,7 +35,7 @@ books-app/
 │   ├── styles/                   # Global styles
 │   └── ...
 └── cypress/                      # E2E tests
-
+```
 
 
 ## Getting Started
