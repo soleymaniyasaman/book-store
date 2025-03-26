@@ -1,0 +1,110 @@
+:host {
+    display: block;
+    --card-bg: var(--bg-card);
+    --card-shadow: var(--shadow-card);
+    --text-primary: var(--text-primary-color);
+    --text-secondary: var(--text-secondary-color);
+  }
+  
+  .about-container {
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    padding: 24px;
+    position: relative;
+    
+    h1 {
+      font-size: 28px;
+      margin: 0 0 24px 0;
+      color: var(--text-primary);
+      text-align: center;
+    }
+  }
+  
+  .theme-toggle-container {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    .theme-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    
+    @media (max-width: 600px) {
+      position: relative;
+      top: 0;
+      right: 0;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+  }
+  
+  .about-content {
+    color: var(--text-secondary);
+    
+    .about-section {
+      margin-bottom: 32px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      h2 {
+        font-size: 20px;
+        margin: 0 0 16px 0;
+        color: var(--text-primary);
+        font-weight: 500;
+      }
+      
+      p {
+        margin: 0 0 16px 0;
+        line-height: 1.6;
+      }
+      
+      ul {
+        margin: 0;
+        padding-left: 24px;
+        
+        li {
+          margin-bottom: 8px;
+          line-height: 1.6;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+          
+          strong {
+            color: var(--text-primary);
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .about-container {
+      padding: 16px;
+    }
+    
+    .about-card {
+      padding: 16px;
+      
+      h1 {
+        font-size: 24px;
+      }
+    }
+    
+    .about-content .about-section h2 {
+      font-size: 18px;
+    }
+  }

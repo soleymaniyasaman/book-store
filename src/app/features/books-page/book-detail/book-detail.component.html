@@ -1,0 +1,33 @@
+<div class="dialog-container">
+    <div *ngIf="book" class="book-detail">
+      <div class="book-header">
+        <h2 mat-dialog-title>{{ book.title }}</h2>
+        <div class="book-actions">
+          <button mat-icon-button color="primary" (click)="editBook()" matTooltip="Edit book">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteBook()" matTooltip="Delete book">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button (click)="closeDialog()" matTooltip="Close">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+      
+        <div class="book-content">
+          <div class="book-image">
+            <img [src]="book.coverImageUrl" [alt]="book.title" title="{{ 'Cover image of ' + book.title }}">
+          </div>
+          <div class="book-details">
+            <p class="book-author">Author: {{ book.author }}</p>
+            <p class="book-price">Price: {{ book.price | currency }}</p>
+            <p class="book-description">Description: {{ book.description }}</p>
+            <div class="book-status" [ngClass]="{'available': book.isAvailable}">
+              {{ book.isAvailable ? 'Available' : 'Unavailable' }}
+            </div>
+
+          </div>
+        </div>
+      </div>
+</div>

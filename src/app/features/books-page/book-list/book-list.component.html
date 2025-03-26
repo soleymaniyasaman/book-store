@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="books-header">
+    <div class="search-container">
+      <mat-form-field appearance="outline" class="mat-form-field-appearance-outline">
+        <mat-label class="label">Search books</mat-label>
+        <input 
+          matInput 
+          [(ngModel)]="searchQuery"
+          (input)="triggerSearch()"
+          placeholder="Search by title or author">
+        <button 
+          *ngIf="searchQuery" 
+          matSuffix 
+          mat-icon-button 
+          aria-label="Clear" 
+          (click)="resetSearch()">
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-icon matPrefix>search</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="add-book-container">
+      <button mat-raised-button color="primary" (click)="addBook()"><mat-icon>add</mat-icon>Add Book</button>
+    </div>
+  </div>
+  <div class="books-container">
+    <ng-container *ngIf="(books$ | async) as books">
+      <div class="book-card" *ngFor="let book of books, let i = index">
+        <div  id="book-{{ i }}">
+          <div class="book-image
+            "><img [src]="book.coverImageUrl" [alt]="book.title" title="Book image" /></div>
+          <div class="book-info">
+            <h2 class="book-title">{{ book.title }}</h2>
+            <p class="book-author">{{ book.author }}</p>
+            <div class="book-line">
+              <p class="book-price">{{ book.price | currency }}</p>
+              <div class="book-availability" [ngClass]="{'available': book.isAvailable}">
+                {{ book.isAvailable ? 'Available' : 'Unavailable' }}
+              </div>
+            </div>
+            <button mat-raised-button color="primary" (click)="viewBookDetails(book)">View Details</button>
+          </div>
+          <div class="book-actions">
+            <button 
+              mat-icon-button 
+              color="primary" 
+              (click)="editBook(book, $event)"
+              matTooltip="Edit book">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button 
+              mat-icon-button 
+              color="warn" 
+              (click)="removeBook(book, $event)"
+              matTooltip="Delete book">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="books.length === 0" class="no-books">
+        <mat-icon>sentiment_dissatisfied</mat-icon>
+        <p>No books found.</p>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<mat-toolbar>
+  <div class="toolbar-container">
+    <div class="header-content">
+    <div class="logo-container">
+      <a routerLink="/" class="logo">
+        <span class="app-name">Book Store</span>
+      </a>
+    </div>
+    
+    <div class="nav-links">
+      <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+      <a mat-button routerLink="/books" routerLinkActive="active">
+        <mat-icon>book</mat-icon>
+        <span>Books</span>
+      </a>
+      <a mat-button routerLink="/about" routerLinkActive="active">
+        <mat-icon>info</mat-icon>
+        <span>About</span>
+      </a>
+    </div>
+  </div>
+    <div class="header-actions">
+      <!-- <button 
+        mat-icon-button 
+        [matTooltip]="eventGeneratorActive ? 'Pause event generator' : 'Start event generator'"
+        (click)="toggleEventGenerator()">
+        <mat-icon>{{ eventGeneratorActive ? 'pause' : 'play_arrow' }}</mat-icon>
+      </button> -->
+      
+      <button 
+        mat-icon-button 
+        [matTooltip]="(isDarkMode$ | async) ? 'Switch to light mode' : 'Switch to dark mode'"
+        (click)="toggleTheme()">
+        <mat-icon>{{ (isDarkMode$ | async) ? 'light_mode' : 'dark_mode' }}</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

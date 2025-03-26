@@ -1,0 +1,123 @@
+<h2 mat-dialog-title>{{ formTitle }}</h2>
+
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content>
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="mat-form-field-appearance-outline">
+        <mat-label class="label" >Title</mat-label>
+        <input matInput formControlName="title" placeholder="Enter book title" required>
+        <mat-error *ngIf="bookForm.get('title')?.hasError('required')">
+          Title is required
+        </mat-error>
+        <mat-error *ngIf="bookForm.get('title')?.hasError('maxlength')">
+          Title must be less than 100 characters
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="mat-form-field-appearance-outline">
+        <mat-label class="label" >Author</mat-label>
+        <input matInput formControlName="author" placeholder="Enter author name" required>
+        <mat-error *ngIf="bookForm.get('author')?.hasError('required')">
+          Author is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="mat-form-field-appearance-outline">
+        <mat-label class="label" >Description</mat-label>
+        <textarea 
+          matInput 
+          formControlName="description" 
+          placeholder="Enter book description"
+          rows="3"
+          required></textarea>
+        <mat-error *ngIf="bookForm.get('description')?.hasError('required')">
+          Description is required
+        </mat-error>
+        <mat-error *ngIf="bookForm.get('description')?.hasError('maxlength')">
+          Description must be less than 500 characters
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <span matSuffix class="dollerSign">$</span>
+        <mat-label class="label">Price</mat-label>
+        <input 
+          matInput 
+          formControlName="price" 
+          type="number" 
+          step="0.01"
+          min="0"
+          placeholder="Enter book price">
+        <mat-error *ngIf="bookForm.get('price')?.hasError('required')">
+          Price is required
+        </mat-error>
+        <mat-error *ngIf="bookForm.get('price')?.hasError('min')">
+          Price cannot be negative
+        </mat-error>
+        <mat-error *ngIf="bookForm.get('price')?.hasError('pattern')">
+          Price must be a valid number with at most 2 decimal places
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row image-form-row">
+      <div class="current-image-container" *ngIf="bookForm.get('coverImageUrl')?.value">
+        <img [src]="bookForm.get('coverImageUrl')?.value" alt="Book cover" class="cover-preview">
+        <button type="button" mat-icon-button color="warn" (click)="removeCoverImage()" 
+                matTooltip="Remove image">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    
+      <div class="image-input-options">
+        <mat-form-field appearance="outline">
+          <mat-label class="label" >Cover Image URL</mat-label>
+          <input matInput class="" formControlName="coverImageUrl" placeholder="Enter image URL">
+          <mat-icon matSuffix *ngIf="bookForm.get('coverImageUrl')?.value" (click)="previewImage()">visibility</mat-icon>
+          <mat-error *ngIf="bookForm.get('coverImageUrl')?.hasError('required')">
+            Cover image is required (URL or upload)
+          </mat-error>
+        </mat-form-field>
+        <div class="divider-or">
+          <span>OR</span>
+        </div>
+        <button type="button" mat-stroked-button (click)="fileInput.click()" class="upload-button">
+          <mat-icon>file_upload</mat-icon>
+          Upload Image
+        </button>
+        <input hidden type="file" #fileInput (change)="onFileSelected($event)" 
+               accept="image/*">
+      </div>
+    </div>
+    
+    <div class="form-row two-columns">
+      <div class="form-field-container checkbox-container">
+        <mat-checkbox formControlName="isAvailable">Available</mat-checkbox>
+      </div>
+    </div>
+  </div>
+  
+  <div mat-dialog-actions>
+    <button 
+      mat-button 
+      type="button"
+      class="cancel-button"
+      (click)="onCancel()">
+      Cancel
+    </button>
+    <button 
+      mat-raised-button 
+      color="primary"
+      type="submit"
+      class="submit-button"
+      [disabled]="bookForm.invalid">
+      {{ isNew ? 'Add Book' : 'Save Changes' }}
+    </button>
+  </div>
+</form>

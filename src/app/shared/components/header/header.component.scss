@@ -1,0 +1,92 @@
+:host {
+    display: block;
+    --bg-header: var(--bg-header);
+    --text-primary: var(--text-primary-color);
+    --text-secondary: var(--text-secondary-color);
+    --shadow-header: var(--shadow-header);
+  }
+  
+  mat-toolbar {
+    // background-color: var(--bg-header);
+    // color: var(--text-primary);
+    box-shadow: var(--shadow-header);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
+    .toolbar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+  }
+  .header-content{
+    display: flex;
+  }
+  .logo-container {
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text-primary);
+      
+      mat-icon {
+        font-size: 24px;
+        height: 24px;
+        width: 24px;
+        margin-right: 8px;
+      }
+      
+      .app-name {
+        font-family: "Dancing Script", cursive;
+        font-size: 24px;
+      }
+    }
+  }
+  
+  .nav-links {
+    display: flex;
+    
+    a {
+      display: flex;
+      align-items: center;
+      margin: 0 4px;
+      color: var(--text-primary);
+      mat-icon {
+        margin-right: 8px;
+      }
+      
+      &.active {
+        background-color: rgba(0, 0, 0, 0.05);
+        
+        .dark-theme & {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+    
+    @media (max-width: 600px) {
+      a span {
+        display: none;
+      }
+      
+      a mat-icon {
+        margin-right: 0;
+      }
+    }
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 8px;
+  }
+  .icon-button{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+  }

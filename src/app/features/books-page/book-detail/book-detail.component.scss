@@ -1,0 +1,77 @@
+:host {
+    display: block;
+    
+    --card-bg: var(--bg-card);
+    --text-primary: var(--text-primary-color);
+    --text-secondary: var(--text-secondary-color);
+  }
+  .book-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 5px 16px 5px;
+    
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.2;
+      color: var(--text-primary);
+    }
+    
+    .book-actions {
+      display: flex;
+      gap: 8px;
+    }
+  }
+  
+  .book-content {
+    display: flex;
+    gap: 24px;
+    margin: 2rem;
+    .book-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      .book-status {
+        width: fit-content;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 500;
+        background-color: #f44336;
+        color: white;
+        margin-top: 10px;
+        &.available {
+          background-color: #4caf50;
+        }
+      }
+    }
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+  
+  .book-image {
+    flex: 0 0 200px;
+    position: relative;
+    
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    
+    @media (max-width: 600px) {
+      flex: 0 0 auto;
+      max-width: 160px;
+      margin: 0 auto;
+    }
+  }
+  
+  mat-dialog-actions {
+    padding-top: 16px;
+    justify-content: flex-end;
+  }

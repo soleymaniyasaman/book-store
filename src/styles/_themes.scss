@@ -1,0 +1,225 @@
+/* Theme Variables - Base definitions */
+:root {
+  /* Colors - Light theme (default) */
+  --primary: #3f51b5;
+  --primary-light: #757de8;
+  --primary-dark: #002984;
+  --accent: #ff4081;
+  --accent-light: #ff79b0;
+  --accent-dark: #c60055;
+  --warn: #f44336;
+  
+  /* Background and surface colors */
+  --bg-main: #f5f5f5;
+  --bg-card: #ffffff;
+  --bg-header: #ffffff;
+  
+  /* Text colors */
+  --text-primary-color: rgba(0, 0, 0, 0.87);
+  --text-secondary-color: rgba(0, 0, 0, 0.6);
+  --text-hint-color: rgba(0, 0, 0, 0.38);
+  
+  /* Other UI elements */
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-header: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --border-color: rgba(0, 0, 0, 0.12);
+  --divider-color: rgba(0, 0, 0, 0.12);
+  
+  /* Status colors */
+  --success: #4caf50;
+  --info: #2196f3;
+  --warning: #ff9800;
+  --error: #f44336;
+
+  /* border */
+  --border-primary: rgba(0, 0, 0, 0.12);
+}
+
+/* Light theme class - explicit for all variables */
+.light-theme {
+  --primary: #3f51b5;
+  --primary-light: #757de8;
+  --primary-dark: #002984;
+  --accent: #ff4081;
+  --accent-light: #ff79b0;
+  --accent-dark: #c60055;
+  --warn: #f44336;
+  
+  --bg-main: #f5f5f5;
+  --bg-card: #ffffff;
+  --bg-header: #ffffff;
+  
+  --text-primary-color: rgba(0, 0, 0, 0.87);
+  --text-secondary-color: rgba(0, 0, 0, 0.6);
+  --text-hint-color: rgba(0, 0, 0, 0.38);
+  
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-header: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --border-color: rgba(0, 0, 0, 0.12);
+  --divider-color: rgba(0, 0, 0, 0.12);
+  
+  --success: #4caf50;
+  --info: #2196f3;
+  --warning: #ff9800;
+  --error: #f44336;
+
+  /* border */
+  --border-primary: rgba(0, 0, 0, 0.12);
+}
+
+/* Dark theme class - explicit for all variables */
+.dark-theme {
+  --primary: #7986cb;
+  --primary-light: #aab6fe;
+  --primary-dark: #49599a;
+  --accent: #ff80ab;
+  --accent-light: #ffb2dd;
+  --accent-dark: #c94f7c;
+  --warn: #ef9a9a;
+  
+  --bg-main: #121212;
+  --bg-card: #1e1e1e;
+  --bg-header: #1e1e1e;
+  
+  --text-primary-color: rgba(255, 255, 255, 0.87);
+  --text-secondary-color: rgba(255, 255, 255, 0.6);
+  --text-hint-color: rgba(255, 255, 255, 0.38);
+  
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-header: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --border-color: rgba(255, 255, 255, 0.12);
+  --divider-color: rgba(255, 255, 255, 0.12);
+  
+  --success: #66bb6a;
+  --info: #42a5f5;
+  --warning: #ffa726;
+  --error: #ef5350;
+
+  /* border */
+  --border-primary: rgba(255, 255, 255, 0.12);
+}
+
+/* Apply theme to body and ensure transitions */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary-color);
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.label {
+  color: var(--text-secondary-color);
+}
+/* Material Design theme overrides - use !important sparingly but where needed */
+.mat-mdc-card {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary-color) !important;
+}
+
+.mat-toolbar {
+  background-color: var(--bg-header) !important;
+  color: var(--text-primary-color) !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary-color) !important;
+}
+
+.mat-mdc-dialog-title{
+  color: var(--text-secondary-color) !important;
+}
+
+.mdc-label{
+  color: var(--text-secondary-color) !important;
+}
+/* Input field theming */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: var(--text-secondary-color) !important;
+}
+
+.mdc-text-field__input{
+  color: var(--text-secondary-color) !important;
+   &::placeholder {
+    color: var(--text-secondary-color) !important;}
+}
+.mdc-floating-label--required:not(.mdc-floating-label--hide-required-marker)::after{
+  color: var(--text-secondary-color) !important;
+}
+.mat-mdc-text-field-wrapper{
+  border: 1px solid var(--border-primary) !important;
+}
+
+.mat-form-field-label {
+  color: var(--text-secondary-color) !important;
+}
+
+.mat-input-element {
+  color: var(--text-primary-color) !important;
+}
+
+/* Button theming */
+.mdc-button{
+  border-color: var(--border-primary) !important;
+}
+.mat-raised-button.mat-primary {
+  background-color: var(--primary) !important;
+
+}
+.mat-mdc-raised-button[disabled], .mat-mdc-raised-button.mat-mdc-button-disabled{
+  border: 1px solid var(--border-color) !important;
+
+}
+
+.mat-stroked-button.mat-primary {
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.mat-flat-button.mat-primary {
+  background-color: var(--primary) !important;
+}
+
+/* Snackbar theming */
+.mat-snack-bar-container {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary-color) !important;
+}
+
+/* Custom button class that respects theme variables */
+.custom-primary-button {
+  background-color: var(--primary);
+  color: white; 
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-primary-button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Add debug information */
+.theme-debug-info {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  font-size: 12px;
+  max-width: 300px;
+  z-index: 9999;
+  opacity: 0.9;
+}
+
+/* Display theme debug info only in development environment */
+.theme-debug-info {
+  display: none;
+}
+
+body.dev-mode .theme-debug-info {
+  display: block;
+}
