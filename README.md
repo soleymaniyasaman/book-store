@@ -28,7 +28,7 @@ books-app/
 ├── src/
 │   ├── app/
 │   │   ├── core/                 # Core functionality (services, models, etc.)
-│   │   ├── shared/               # Shared components (header, footer, book card)
+│   │   ├── shared/               # Shared components (header, footer)
 │   │   ├── features/             # Feature modules (home, books, about)
 │   │   └── ...                   # App root components
 │   ├── assets/                   # Static assets

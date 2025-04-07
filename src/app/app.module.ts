@@ -14,7 +14,6 @@ import { HttpErrorInterceptor } from './core/interceptors/http-error.interceptor
 // Shared Components
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import { BookCardComponent } from './shared/components/book-card/book-card.component';
 
 // Feature Components
 import { HomeComponent } from './features/home-page/home.component';
@@ -42,7 +41,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    BookCardComponent,
 ],
 imports: [
     BrowserModule,

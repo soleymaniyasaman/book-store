@@ -27,8 +27,7 @@
     <ng-container *ngIf="(books$ | async) as books">
       <div class="book-card" *ngFor="let book of books, let i = index">
         <div  id="book-{{ i }}">
-          <div class="book-image
-            "><img [src]="book.coverImageUrl" [alt]="book.title" title="Book image" /></div>
+          <div class="book-image"><img [src]="book.coverImageUrl" [alt]="book.title" title="Book image" /></div>
           <div class="book-info">
             <h2 class="book-title">{{ book.title }}</h2>
             <p class="book-author">{{ book.author }}</p>
